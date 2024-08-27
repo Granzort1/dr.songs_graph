@@ -31,7 +31,7 @@ def plot_scatter_with_errorbars(data, custom_labels, numb, legend_prefix=''):
     markers = ['o', 'o', 'v', '^', 's', 's', 'd', 'x']
     marker_size = 50
     edge_width = 0.5
-    ax.grid(True, linewidth=0.5)
+    #ax.grid(True, linewidth=0.5)
     threshold = 1e-10
 
     # 수정된 선 스타일 정의
@@ -97,8 +97,8 @@ def plot_scatter_with_errorbars(data, custom_labels, numb, legend_prefix=''):
     fig.tight_layout()
     plt.subplots_adjust(top=0.95)
 
-    plt.savefig(f"C:\\graph_sis\\graph\\{numb}.png", dpi=300)
-    plt.show()
+    plt.savefig(f"C:\\graph_sis\\graph\\{numb}.png", dpi=600)
+    #plt.show()
     plt.close()
 
 # 사용 예시

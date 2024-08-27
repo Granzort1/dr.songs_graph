@@ -28,7 +28,7 @@ def plot_scatter_with_errorbars(data, custom_labels, numb, legend_prefix=''):
     markers = ['o', 'o', 'v', '^', 's', 's', 'd', 'x']
     marker_size = 50
     edge_width = 0.5
-    ax.grid(True, linewidth=0.5)
+    #ax.grid(True, linewidth=0.5)
 
     line_styles = [
         '-',
@@ -55,7 +55,7 @@ def plot_scatter_with_errorbars(data, custom_labels, numb, legend_prefix=''):
 
     ax.set_xlabel('Cultivation time (day)', fontsize=14, fontweight='light', fontproperties=thin_font)
     ax.set_ylabel('OD (cm⁻¹)', fontsize=14, fontweight='light', fontproperties=thin_font)
-    ax.set_xlim(-0.5, 10.5)
+    ax.set_xlim(-0.5, 11)
     ax.tick_params(axis='both', which='major', labelsize=11, width=0.5)
     for label in ax.get_xticklabels() + ax.get_yticklabels():
         label.set_fontweight('normal')
@@ -74,8 +74,8 @@ def plot_scatter_with_errorbars(data, custom_labels, numb, legend_prefix=''):
     fig.tight_layout()
     plt.subplots_adjust(top=0.95)
 
-    plt.savefig(f"C:\\graph_sis\\graph\\{numb}.png", dpi=300)
-    plt.show()
+    plt.savefig(f"C:\\graph_sis\\graph\\{numb}.png", dpi=600)
+    #plt.show()
     plt.close()
 
 # 사용 예시
