@@ -7,22 +7,24 @@ from matplotlib import font_manager
 # 얇은 글꼴 설정
 thin_font = font_manager.FontProperties(weight='light')
 # 데이터 불러오기
-data1 = pd.read_excel("C:\\graph_sis\\input\\2nd_graph_no1.xlsx")
-data2 = pd.read_excel("C:\\graph_sis\\input\\2nd_graph_no2.xlsx")
-data3 = pd.read_excel("C:\\graph_sis\\input\\2nd_graph_no3.xlsx")
-data4 = pd.read_excel("C:\\graph_sis\\input\\2nd_graph_no4.xlsx")
-
+# data1 = pd.read_excel("C:\\graph_sis\\input\\2nd_graph_no1.xlsx")
+# data2 = pd.read_excel("C:\\graph_sis\\input\\2nd_graph_no2.xlsx")
+# data3 = pd.read_excel("C:\\graph_sis\\input\\2nd_graph_no3.xlsx")
+# data4 = pd.read_excel("C:\\graph_sis\\input\\2nd_graph_no4.xlsx")
+data5 = pd.read_excel("C:\\dr.songs_graph\\input\\nanobubble.xlsx")
 
 custom_labels1 = ["pH 3", "pH 5", "pH 7.5", "pH 9"]
 custom_labels2 = ["35 °C", "25 °C", "15 °C"]
 custom_labels3 = ["Red", "Green", "Blue", "White"]
 custom_labels4 = ["400 μmol/m²/s", "220 μmol/m²/s", "114 μmol/m²/s", "46 μmol/m²/s"]
-
+custom_labels5 = ["1min", "5min", "10min", "20min"]
 
 def plot_scatter_with_errorbars(data, custom_labels, numb, legend_prefix=''):
     fig, ax = plt.subplots(figsize=(9, 6))
     cleandata = data.dropna()
-    x_col_name = 'Days'
+    # x_col_name = 'Days'
+    # x축 컬럼명 변경
+    x_col_name = 'Cultivation time (day)'  # 'Days'에서 변경
     y_cols = [col for col in cleandata.columns if col != x_col_name]
     x_col = cleandata[x_col_name]
     markers = ['o', 'o', 'v', '^', 's', 's', 'd', 'x']
@@ -55,7 +57,7 @@ def plot_scatter_with_errorbars(data, custom_labels, numb, legend_prefix=''):
 
     ax.set_xlabel('Cultivation time (day)', fontsize=14, fontweight='light', fontproperties=thin_font)
     ax.set_ylabel('OD (cm⁻¹)', fontsize=14, fontweight='light', fontproperties=thin_font)
-    ax.set_xlim(-0.5, 11)
+    ax.set_xlim(-0.5, 17)
     ax.tick_params(axis='both', which='major', labelsize=11, width=0.5)
     for label in ax.get_xticklabels() + ax.get_yticklabels():
         label.set_fontweight('normal')
@@ -74,14 +76,15 @@ def plot_scatter_with_errorbars(data, custom_labels, numb, legend_prefix=''):
     fig.tight_layout()
     plt.subplots_adjust(top=0.95)
 
-    plt.savefig(f"C:\\graph_sis\\graph\\{numb}.png", dpi=600)
+    plt.savefig(f"C:\\dr.songs_graph\\graph\\{numb}.png", dpi=600)
     #plt.show()
     plt.close()
 
 # 사용 예시
 
 
-plot_scatter_with_errorbars(data1, custom_labels1, "2nd_no1_pH")
-plot_scatter_with_errorbars(data2, custom_labels2, "2nd_no2_pH")
-plot_scatter_with_errorbars(data3, custom_labels3, "2nd_no3_pH")
-plot_scatter_with_errorbars(data4, custom_labels4, "2nd_no4_pH")
+# plot_scatter_with_errorbars(data1, custom_labels1, "2nd_no1_pH")
+# plot_scatter_with_errorbars(data2, custom_labels2, "2nd_no2_pH")
+# plot_scatter_with_errorbars(data3, custom_labels3, "2nd_no3_pH")
+# plot_scatter_with_errorbars(data4, custom_labels4, "2nd_no4_pH")
+plot_scatter_with_errorbars(data5, custom_labels5, "nanobubble", legend_prefix='Nanobubble injection time ')

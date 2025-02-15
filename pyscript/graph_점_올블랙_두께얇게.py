@@ -13,6 +13,7 @@ data22 = pd.read_excel("C:\\graph_sis\\input\\test22.xlsx")
 data31 = pd.read_excel("C:\\graph_sis\\input\\test31.xlsx")
 data32 = pd.read_excel("C:\\graph_sis\\input\\test32.xlsx")
 data4 = pd.read_excel("C:\\graph_sis\\input\\test4.xlsx")
+data5 = pd.read_excel("C:\\graph_sis\\input\\nanobubble.xlsx")
 
 custom_labels1 = ["42:10", "42:1", "140:1"]
 custom_labels21 = ["4:1", "8:1", "16:1", "42:1", "70:1", "140:1"]
@@ -20,7 +21,7 @@ custom_labels22 = ["42:0.1", "42:0.5", "42:1", "42:2", "42:8", "42:16"]
 custom_labels31 = ["4:1", "8:1", "16:1", "42:1"]
 custom_labels32 = ["4:16", "8:16", "16:16", "42:16"]
 custom_labels4 = ["10%", "25%", "50%", "100%"]
-
+custom_labels5 = ["1min", "5min", "10min", "20min"]
 
 def plot_scatter_with_errorbars(data, custom_labels, numb, legend_prefix=''):
     fig, ax = plt.subplots(figsize=(9, 6))
@@ -110,3 +111,4 @@ plot_scatter_with_errorbars(data22, custom_labels22, "2.2번", legend_prefix='N 
 plot_scatter_with_errorbars(data31, custom_labels31, "3.1번", legend_prefix='N to P Ratio ')
 plot_scatter_with_errorbars(data32, custom_labels32, "3.2번", legend_prefix='N to P Ratio ')
 plot_scatter_with_errorbars(data4, custom_labels4, "4번", legend_prefix='Concentration of BG11 medium ')
+plot_scatter_with_errorbars(data5, custom_labels5, "나노버블", legend_prefix='Nanobubble injection time ')
